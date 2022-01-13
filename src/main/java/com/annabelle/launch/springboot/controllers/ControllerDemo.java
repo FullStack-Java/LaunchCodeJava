@@ -82,11 +82,11 @@ public class ControllerDemo {
     }
 
     static ArrayList<String> names2 = new ArrayList<>();
-    @PostMapping("/add-names-two")
+    @PostMapping("/add-names-two-display")
     public String namesAcceptFormData(Model model, @RequestParam String usrname2){
         names2.add(usrname2);
         model.addAttribute("namesCollected2",names2);
-        return "views/addNamesTwo";
+        return "views/addNamesTwoDisplay";
     }
 
 
