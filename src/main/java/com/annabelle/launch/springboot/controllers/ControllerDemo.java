@@ -3,8 +3,10 @@ package com.annabelle.launch.springboot.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 
@@ -38,6 +40,36 @@ public class ControllerDemo {
 
         model.addAttribute("namesArray",names);
         return "views/names";
+    }
+
+    /**
+     * Handler to add the form
+     * @param model
+     * @return
+     */
+    @GetMapping("/add-names")
+    public String namesForm(Model model){
+        model.addAttribute("formVar","Data is being passed.");
+        return "views/addNames";
+    }
+
+    /**
+     * Handler to get the information from the form
+     * Get names from the form using HttpServletRequest
+     * Add it to an arrayList and pass it back to the html attibute
+     * where it is displayed using thymeleaf
+     *
+     * @param model
+     * @param request
+     * @return
+     */
+    ArrayList<String> names = new ArrayList<>();
+    @PostMapping("/add-names")
+    public String namesAcceptForm(Model model, HttpServletRequest request){
+        String name = request.getParameter("usrname");
+        names.add(name);
+        model.addAttribute("namesCollected",names);
+        return "views/addNames";
     }
 
 }

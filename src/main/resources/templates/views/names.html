@@ -7,6 +7,7 @@
 <body>
     <header></header>
     <main>
+        <p th:unless="${namesArray} and ${namesArray.size()}">There is no names in the ArrayList</p>
        <ul>
            <li th:each="name : ${namesArray}" th:text="${name}" ></li>
        </ul>
