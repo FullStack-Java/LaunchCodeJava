@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Names Array</title>
+</head>
+<body>
+    <header></header>
+    <main>
+       <ul>
+           <li th:each="name : ${namesArray}" th:text="${name}" ></li>
+       </ul>
+    </main>
+    <footer></footer>
+
+</body>
+</html>
