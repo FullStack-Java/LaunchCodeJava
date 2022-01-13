@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -71,5 +72,23 @@ public class ControllerDemo {
         model.addAttribute("namesCollected",names);
         return "views/addNames";
     }
+
+
+
+    @GetMapping("/add-names-two")
+    public String namesFormTwo(Model model){
+        model.addAttribute("formVar2","The data that is collected from the form will be handled differently.");
+        return "views/addNamesTwo";
+    }
+
+    static ArrayList<String> names2 = new ArrayList<>();
+    @PostMapping("/add-names-two")
+    public String namesAcceptFormData(Model model, @RequestParam String usrname2){
+        names2.add(usrname2);
+        model.addAttribute("namesCollected2",names2);
+        return "views/addNamesTwo";
+    }
+
+
 
 }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <main>
+        <!--The data that will be collected from the form will be handled differently-->
+        <h4 th:text="${formVar2}"></h4>
+        <form action="" method="post">
+            <input type="text" name="usrname2">
+            <input type="submit" value="Submit Your Name">
+        </form>
+
+        <div>
+            <h5 th:unless="${namesCollected2} and ${namesCollected2.size()}">New Way. No name entered in the form as yet</h5>
+            <ul>
+                <li th:each="cName2 : ${namesCollected2}" th:text="${cName2}"></li>
+            </ul>
+        </div>
+    </main>
+
+</body>
+</html>
