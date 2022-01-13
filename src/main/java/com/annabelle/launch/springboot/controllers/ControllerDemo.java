@@ -14,38 +14,16 @@ import java.util.Optional;
  */
 
 @Controller
-@RequestMapping("routes")
+@RequestMapping("views")
 public class ControllerDemo {
 
-    @GetMapping("/{id}")
-    @ResponseBody
-    public String index(@PathVariable String id){
-        return "Hi Annabelle" + id;
+//    The name of the request mapping for the class has to pre-fix the return
+//    statment and a directory of the same name has to be in the templates folder
+
+    @GetMapping("/")
+    public String index(){
+        return "views/index";
     }
 
-    @GetMapping("/message")
-    @ResponseBody
-    public String getMessage(HttpServletRequest request){
-        String msg = "tahdah";
-        Optional<String> usrMessage = Optional.of(Optional.ofNullable(request.getParameter("msg")).orElse(msg));
-        return "Takes a query parameter: "+ usrMessage.get();
-    }
-
-    @GetMapping("/goodbye")
-    @ResponseBody
-    public String bye(){
-        return "Bye-Bye Anna Sad to see you go!";
-    }
-
-    @GetMapping("/hi-again")
-    @ResponseBody
-    public String noBye(){
-        return "I know you didn't wanna go. Notice that the redirect that sends you here does not have a response body annotation";
-    }
-
-    @GetMapping("/hello-goodbye")
-    public String helloBye(){
-        return "redirect:/routes/hi-again";
-    }
 
 }
