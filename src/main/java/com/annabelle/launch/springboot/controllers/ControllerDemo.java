@@ -1,13 +1,10 @@
 package com.annabelle.launch.springboot.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Optional;
 
 /**
  *      Created by: Annabelle Ellis
@@ -21,7 +18,9 @@ public class ControllerDemo {
 //    statement and a directory of the same name has to be in the templates folder
 
     @GetMapping("/")
-    public String index(){
+    public String index(Model model){
+//        Takes two parameters of a key value pair
+        model.addAttribute("param","attributePassed");
         return "views/index";
     }
 
