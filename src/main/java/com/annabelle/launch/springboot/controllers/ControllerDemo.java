@@ -18,7 +18,7 @@ import java.util.Optional;
 public class ControllerDemo {
 
 //    The name of the request mapping for the class has to pre-fix the return
-//    statment and a directory of the same name has to be in the templates folder
+//    statement and a directory of the same name has to be in the templates folder
 
     @GetMapping("/")
     public String index(){
