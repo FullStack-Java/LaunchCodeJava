@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Thymeleaf-Views</title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
     <header>
         <h1 >Views for Thymeleaf h</h1>
+        <nav th:replace="fragments :: navigation"></nav>
     </header>
     <main>
         <h6 th:text="${parameter}"></h6>

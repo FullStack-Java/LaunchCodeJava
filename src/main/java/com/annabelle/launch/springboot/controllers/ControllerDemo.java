@@ -27,6 +27,7 @@ public class ControllerDemo {
     public String index(Model model){
 //        Takes two parameters of a key value pair
         model.addAttribute("parameter","attributePassed");
+        model.addAttribute("title","Thymeleaf-Views,Index Page");
         return "views/index";
     }
 
