@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Names Array</title>
-</head>
+<head th:replace=" fragments :: head"></head>
+<head th:replace="fragments :: head"></head>
 <body>
     <header></header>
     <main>
-        <p th:unless="${namesArray} and ${namesArray.size()}">There is no names in the ArrayList</p>
-       <ul>
-           <li th:each="name : ${namesArray}" th:text="${name}" ></li>
-       </ul>
+        <form action="/views/names" method="post">
+            <div class="form-group">
+                <label for="name">Name: </label>
+                <input type="text" name="name" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="quote">Favourite Quote: </label>
+                <input type="text" name="quote" value="Enter your fav quote" class="form-control" id="quote">
+            </div>
+            <input type="submit" value="Submit" class="btn-primary">
+        </form>
     </main>
     <footer></footer>
 
