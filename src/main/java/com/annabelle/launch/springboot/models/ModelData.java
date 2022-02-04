@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class ModelData {
 
-    static ArrayList<ModelDemo> modelData;
+    static ArrayList<ModelDemo> modelData = new ArrayList<>();;
 
     public ModelData() {
-        ModelData.modelData = new ArrayList<>();
+
     }
 
     public static ArrayList<ModelDemo> getAll(){

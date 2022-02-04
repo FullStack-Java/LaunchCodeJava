@@ -3,11 +3,14 @@
 <head th:replace=" fragments :: head"></head>
 <body>
     <main>
-<!--        <div th:each=" : ${}">-->
-<!--            <p th:text="${person.name}"></p>-->
-<!--            <p th:text="${person.quote}"></p>-->
-<!--        </div>-->
-<p th:text="${person}"></p>
+        <nav th:replace=" fragments :: back_navigation"></nav>
+        <div th:each=" person: ${persons}">
+            <p th:text="${person.name}"></p>
+            <p th:text="${person.quote}"></p>
+        </div>
+<!--<p th:text="${person.name}"></p>-->
+<!--        <p th:text="${person.quote}"></p>-->
+
     </main>
 </body>
 </html>

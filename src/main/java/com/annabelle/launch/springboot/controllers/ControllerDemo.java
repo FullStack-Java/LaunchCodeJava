@@ -41,14 +41,20 @@ public class ControllerDemo {
     public String addNamesFromForm(Model model, @RequestParam String name, @RequestParam String quote ){
         model.addAttribute("title","Forms Page");
         ModelDemo newPerson = new ModelDemo(name,quote);
-        ModelData.addPerson(newPerson);
-        return "redirect:/view/display-names";
+        try{
+            System.out.println(newPerson.getName());
+            System.out.println(newPerson.getQuote());
+            ModelData.addPerson(newPerson);
+        }catch (Exception e){
+            System.out.println("This where the error lye. " + e.getMessage());
+        }
+        return "redirect:/views/display-names";
     }
 
     @GetMapping("/display-names")
     public String displayNames(Model model){
         model.addAttribute("title","Display Person Data");
-        model.addAttribute("person", ModelData.getAll());
+        model.addAttribute("persons", ModelData.getAll());
         return "views/allnames";
     }
 
