@@ -4,10 +4,7 @@ import com.annabelle.launch.springboot.models.ModelData;
 import com.annabelle.launch.springboot.models.ModelDemo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -38,12 +35,12 @@ public class ControllerDemo {
     }
 
     @PostMapping("/names")
-    public String addNamesFromForm(Model model, @RequestParam String name, @RequestParam String quote ){
+    public String addNamesFromForm(Model model, @ModelAttribute ModelDemo newPerson ){
         model.addAttribute("title","Forms Page");
-        ModelDemo newPerson = new ModelDemo(name,quote);
+//        ModelDemo newPerson = new ModelDemo(name,quote);
         try{
-            System.out.println(newPerson.getName());
-            System.out.println(newPerson.getQuote());
+//            System.out.println(newPerson.getName());
+//            System.out.println(newPerson.getQuote());
             ModelData.addPerson(newPerson);
         }catch (Exception e){
             System.out.println("This where the error lye. " + e.getMessage());
