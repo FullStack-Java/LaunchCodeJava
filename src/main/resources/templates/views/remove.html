@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Remove Name</title>
+</head>
+<body>
+    <nav th:replace="fragments :: back_navigation"></nav>
+    <main>
+        <h5 th:unless="${remPersons} and ${remPersons.size()}">No name entered in the form as yet</h5>
+        <form action="/views/remove-names" method="post">
+            <div class="checkbox" th:each=" remPerson : ${remPersons}">
+                <input type="checkbox" name="removeIds" th:value="${remPerson.id}" th:id="${remPerson.id}">
+                <label th:for="${remPerson.id}" th:text="${remPerson.name}"></label>
+            </div>
+            <button type="submit">Remove Name</button>
+        </form>
+
+    </main>
+</body>
+</html>

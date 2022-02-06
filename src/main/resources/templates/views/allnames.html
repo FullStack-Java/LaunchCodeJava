@@ -3,13 +3,12 @@
 <head th:replace=" fragments :: head"></head>
 <body>
     <main>
+        <h5 th:unless="${persons} and ${persons.size()}">No name entered in the form as yet</h5>
         <nav th:replace=" fragments :: back_navigation"></nav>
         <div th:each=" person: ${persons}">
             <p th:text="${person.name}"></p>
             <p th:text="${person.quote}"></p>
         </div>
-<!--<p th:text="${person.name}"></p>-->
-<!--        <p th:text="${person.quote}"></p>-->
 
     </main>
 </body>

@@ -58,4 +58,20 @@ public class ControllerDemo {
         return "views/allnames";
     }
 
+    @GetMapping("/remove-names")
+    public String removeNames(Model model){
+        model.addAttribute("title","Remove Person Data");
+        model.addAttribute("remPersons", ModelData.getAll());
+        return "views/remove";
+    }
+
+    @PostMapping("/remove-names")
+    public String removePostNames(Model model, @RequestParam int[] removeIds){
+        model.addAttribute("title","After Remove Person Data");
+        for (int id:removeIds ) {
+            ModelData.remove(Integer.parseInt(String.valueOf(id)));
+        }
+        return "redirect:/views/display-names";
+    }
+
 }
